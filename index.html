@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Benji's Giga Pet with a Chrome DevTools debugging lab for COMP 484 Homework 10.">
+    <title>Benji's DevTools Lab</title>
+    <link rel="icon" href="images/benji awake.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="game-card">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">COMP 484 · HOMEWORK 10</p>
+            <h1>Meet <span class="name"></span></h1>
+          </div>
+          <div class="online-pill"><span class="status-dot"></span><span class="pet-status">Awake</span></div>
+        </header>
+
+        <section class="pet-area" aria-label="Your virtual pet">
+          <div class="pet-picture">
+            <div class="blob"></div>
+            <img class="pet-image" src="images/benji awake.jpg" alt="Benji standing and looking at the camera">
+            <span class="sparkle sparkle-one">+</span>
+            <span class="sparkle sparkle-two">+</span>
+          </div>
+
+          <div class="speech-wrap">
+            <p class="speech" aria-live="polite">yo, what's up?</p>
+            <p class="tiny-note">Benji has strong opinions about snacks.</p>
+          </div>
+        </section>
+
+        <section class="dashboard" aria-label="Pet stats and controls">
+          <div class="stats">
+            <div class="stat-row" data-stat="weight">
+              <div class="stat-label"><span>Weight</span><strong><span class="weight"></span> lbs</strong></div>
+              <div class="meter"><div class="meter-fill"></div></div>
+            </div>
+            <div class="stat-row" data-stat="happiness">
+              <div class="stat-label"><span>Happiness</span><strong><span class="happiness"></span> wags/min</strong></div>
+              <div class="meter"><div class="meter-fill"></div></div>
+            </div>
+          </div>
+
+          <div class="actions" aria-label="Pet actions">
+            <button class="treat-button" type="button"><span>🍪</span>Treat</button>
+            <button class="play-button" type="button"><span>🎾</span>Play</button>
+            <button class="exercise-button" type="button"><span>🏃</span>Exercise</button>
+            <button class="nap-button" type="button"><span>💤</span>Nap</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="lab-card" aria-labelledby="lab-title">
+        <div class="lab-heading">
+          <div>
+            <p class="eyebrow">CHROME DEVTOOLS PRACTICE</p>
+            <h2 id="lab-title">DevTools Lab</h2>
+          </div>
+          <p class="lab-intro">Open DevTools with <kbd>F12</kbd>, select the Console, then use these controls to create clear screenshot evidence.</p>
+        </div>
+
+        <div class="lab-grid">
+          <article class="lab-panel">
+            <span class="step-label">Console methods</span>
+            <h3>Logging sampler</h3>
+            <p>Produces info, warning, error, table, grouped, and CSS-styled messages.</p>
+            <button id="run-console-demo" class="lab-button primary" type="button">Run console demo</button>
+          </article>
+
+          <article class="lab-panel">
+            <span class="step-label">Browser messages</span>
+            <h3>Diagnostic triggers</h3>
+            <p>Run one trigger at a time so each browser-generated message is easy to capture.</p>
+            <div class="button-stack">
+              <button id="trigger-404" class="lab-button" type="button">Trigger 404</button>
+              <button id="trigger-type-error" class="lab-button" type="button">Trigger TypeError</button>
+              <button id="trigger-violation" class="lab-button" type="button">Trigger violation</button>
+            </div>
+            <p id="diagnostic-status" class="result-box" aria-live="polite">No diagnostic triggered yet.</p>
+          </article>
+
+          <article class="lab-panel filter-panel">
+            <span class="step-label">Console filters</span>
+            <h3>Searchable messages</h3>
+            <p>The sampler prefixes messages with predictable keywords for text and regular-expression filters.</p>
+            <dl class="filter-list">
+              <div><dt>Text</dt><dd><code>BENJI_FILTER</code></dd></div>
+              <div><dt>Regex</dt><dd><code>/BENJI_(INFO|WARN)/</code></dd></div>
+              <div><dt>Source</dt><dd><code>script.js</code></dd></div>
+              <div><dt>User messages</dt><dd>Console sidebar → User messages</dd></div>
+            </dl>
+          </article>
+
+          <article class="lab-panel debug-panel">
+            <span class="step-label">Sources breakpoint</span>
+            <h3>Debug the treat total</h3>
+            <p>Expected: 2 base treats × 3 bonus = <strong>6 treats</strong>. The intentional bug returns the wrong total.</p>
+            <button id="run-debug-demo" class="lab-button primary" type="button">Calculate treats</button>
+            <p id="debug-result" class="result-box" aria-live="polite">Run the calculation to reproduce the bug.</p>
+            <p class="code-hint">Breakpoint target: <code>calculateTreatReward()</code> in <code>script.js</code>.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

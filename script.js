@@ -123,7 +123,7 @@ $(function () {
   // INTENTIONAL HW10 BUG: set a line-of-code breakpoint on the next line.
   // After collecting the paused-state screenshots, replace 10 with bonusMultiplier.
   function calculateTreatReward(baseTreats, bonusMultiplier) {
-    var totalTreats = baseTreats * 10;
+    var totalTreats = baseTreats * bonusMultiplier;
     return totalTreats;
   }
 
